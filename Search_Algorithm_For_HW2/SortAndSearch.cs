@@ -88,7 +88,7 @@ namespace Search_Algorithm_For_HW2
                 else if (x[mid] > searchValue)
                     high = mid - 1;
                 else
-                    return mid - 1;
+                    return mid ;  // deleted -1 // Denis
             }
 
             if (x[low] == searchValue)

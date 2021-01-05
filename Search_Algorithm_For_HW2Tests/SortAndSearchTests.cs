@@ -56,7 +56,14 @@ namespace Search_Algorithm_For_HW2.Tests
         [TestMethod()]
         public void SecondSearchTest()
         {
-            Assert.Fail();
+            int[] exampleArray = { 6, 9, 52, -20, 100 };
+            int firstValueToFind = 0;
+            int secondValueToFind = 100;
+            int returnedIndex = SortAndSearch.SecondSearch(exampleArray, firstValueToFind);
+            Assert.AreEqual(returnedIndex, -1);
+            int returnedIndex2 = SortAndSearch.SecondSearch(exampleArray, secondValueToFind);
+            Assert.AreEqual(returnedIndex2, 4);
+
         }
 
         [TestMethod()]
