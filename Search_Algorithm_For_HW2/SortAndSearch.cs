@@ -44,7 +44,7 @@ namespace Search_Algorithm_For_HW2
             // Returns index of searchValue in sorted array x, or -1 if not found
             SortAlgorithm(ref x);
             int left = 0;
-            int right = x.Length;
+            int right = x.Length - 1;                // added -1   // Denis                    
             return helpingSearch(x, searchValue, left, right);
         }
         public static int helpingSearch(int[] x, int searchValue, int left, int right)
@@ -64,7 +64,7 @@ namespace Search_Algorithm_For_HW2
             }
             else
             {
-                return mid + 1;
+                return mid;             // deleted the -1   // Denis
             }
         }
         #endregion
@@ -170,6 +170,8 @@ namespace Search_Algorithm_For_HW2
             Console.ReadLine();
         }
         #endregion
+
+
     }
 }
 
