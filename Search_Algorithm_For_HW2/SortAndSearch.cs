@@ -44,7 +44,8 @@ namespace Search_Algorithm_For_HW2
             // Returns index of searchValue in sorted array x, or -1 if not found
             SortAlgorithm(ref x);
             int left = 0;
-            int right = x.Length - 1;                // added -1   // Denis Idan                    
+            // int right = x.Length;                    // Denis Idan    
+            int right = x.Length - 1;                   // added -1 Denis Idan
             return helpingSearch(x, searchValue, left, right);
         }
         public static int helpingSearch(int[] x, int searchValue, int left, int right)
@@ -64,7 +65,8 @@ namespace Search_Algorithm_For_HW2
             }
             else
             {
-                return mid;             // deleted the -1   // Denis Idan
+                //return mid - 1;               // Denis Idan
+                return mid;                     // deleted the -1       Denis Idan
             }
         }
         #endregion
@@ -88,7 +90,8 @@ namespace Search_Algorithm_For_HW2
                 else if (x[mid] > searchValue)
                     high = mid - 1;
                 else
-                    return mid ;  // deleted -1 // Denis Idan
+                    // return mid - 1 ;     // Denis Idan 
+                    return mid;             // deleted -1       // Denis Idan
             }
 
             if (x[low] == searchValue)
@@ -103,8 +106,10 @@ namespace Search_Algorithm_For_HW2
         public static int ThirdSearch(int[] x, int searchValue)
         {
             SortAlgorithm(ref x);
-            int n = x.Length-1 ;                // added -1 (to prevent out of bounds index)    // Denis Idan
-            for (int i = 0; i <= n; i++)        // added "=" // Denis Idan
+            // int n = x.Length ;                                                                        // Denis Idan
+            int n = x.Length - 1;                   // added -1 (to prevent out of bounds index)        // Denis Idan
+            // for (int i = 0; i < n; i++)         // Denis Idan
+            for (int i = 0; i <= n; i++)          // added "="                                        //Denis Idan
             {
                 if (x[i] == searchValue)
                     return i;
