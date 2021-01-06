@@ -78,15 +78,16 @@ namespace Search_Algorithm_For_HW2
             // array x, or -1 if searchValue is not found
             SortAlgorithm(ref x);
             int low = 0;
-            int high = x.Length - 1;
+            int high = x.Length -1  ; 
             int mid;
 
-            while (x[low] < searchValue && x[high] >= searchValue)
+            // while (x[low] < searchValue && x[high] >= searchValue) // Denis Idan
+            while (x[low] <= searchValue && x[high] >= searchValue)  
             {
-                mid = low + ((searchValue - x[low]) * (high - low)) / (x[high] - x[low]);
+                mid = low + (int)((searchValue - x[low]) * (high - low)) / (x[high] - x[low]); // added (int)  // Denis Idan
 
                 if (x[mid] < searchValue)
-                    low = mid + 1;
+                    low = mid + 1; 
                 else if (x[mid] > searchValue)
                     high = mid - 1;
                 else
@@ -97,7 +98,8 @@ namespace Search_Algorithm_For_HW2
             if (x[low] == searchValue)
             {
                 Console.WriteLine("Index algorithm = " + low);
-                return low - 1;
+                // return low-1;       // Denis Idan       
+                return low;         // deleted -1   Denis Idan
             }
             return -1;
         }

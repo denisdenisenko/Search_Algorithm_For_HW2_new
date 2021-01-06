@@ -12,6 +12,7 @@ namespace Search_Algorithm_For_HW2.Tests
     public class SortAndSearchTests
     {
 
+
         [TestMethod()]
         public void SortAlgorithmTest_goodExample()
         {
@@ -167,6 +168,22 @@ namespace Search_Algorithm_For_HW2.Tests
         }
 
         [TestMethod()]
+        public void SecondSearch_Test_valueExists_anotheBoundary()
+        {
+            //arrange
+            int[] exampleArray = { 6, 9, 52, -20, 100 };
+            int secondValueToFind = 52;
+            //act
+
+            int returnedIndex2 = SortAndSearch.SecondSearch(exampleArray, secondValueToFind);
+            //assert
+
+            Assert.AreEqual(returnedIndex2, 3);
+
+        }
+
+
+        [TestMethod()]
         public void SecondSearch_Test_valueExists_and_its_first_index()
         {
             //arrange
@@ -178,7 +195,7 @@ namespace Search_Algorithm_For_HW2.Tests
             int returnedIndex3 = SortAndSearch.SecondSearch(exampleArray, thirdValueToFind);
             //assert
 
-            Assert.AreEqual(returnedIndex3, -1, "Index algorithm = " + returnedIndex3);
+            Assert.AreEqual(returnedIndex3, 0, "Index algorithm = " + returnedIndex3);
 
         }
 
@@ -303,6 +320,42 @@ namespace Search_Algorithm_For_HW2.Tests
             //act
             string actualValue = (string)privateTypeObject.InvokeStatic("searchingAlgorithms", exampleArray, searchValue, searchType);
             string expected = "Using BinarySearch ALGORITHM: Value was not found in list";
+            //assert
+
+            Assert.AreEqual(actualValue, expected);
+        }
+        [TestMethod()]
+        public void private_class_searchingAlgorithms_InterpolationSearch_value_Exists()
+        {
+            // arrange
+
+            int[] exampleArray = { 9, 8, 55, 3, -13, 56, 101, 2, 0, 1000 };
+            int searchValue = 55;
+            String searchType = "InterpolationSearch";
+            PrivateType privateTypeObject = new PrivateType(typeof(SortAndSearch));
+
+            //act
+            string actualValue = (string)privateTypeObject.InvokeStatic("searchingAlgorithms", exampleArray, searchValue, searchType);
+            string expected = "Using InterpolationSearch ALGORITHM to look for value= 55 Found it at location= 6";
+            //assert
+
+            Assert.AreEqual(actualValue, expected);
+        }
+
+        [TestMethod()]
+
+        public void private_class_searchingAlgorithms_InterpolationSearch_value_Not_Exists()
+        {
+            // arrange
+
+            int[] exampleArray = { 9, 8, 55, 3, -13, 56, 101, 2, 0, 1000 };
+            int searchValue = 11;
+            String searchType = "InterpolationSearch";
+            PrivateType privateTypeObject = new PrivateType(typeof(SortAndSearch));
+
+            //act
+            string actualValue = (string)privateTypeObject.InvokeStatic("searchingAlgorithms", exampleArray, searchValue, searchType);
+            string expected = "Using InterpolationSearch ALGORITHM: Value was not found in list";
             //assert
 
             Assert.AreEqual(actualValue, expected);
