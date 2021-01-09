@@ -12,7 +12,6 @@ namespace Search_Algorithm_For_HW2.Tests
     public class SortAndSearchTests
     {
 
-
         [TestMethod()]
         public void SortAlgorithmTest_goodExample()
         {
